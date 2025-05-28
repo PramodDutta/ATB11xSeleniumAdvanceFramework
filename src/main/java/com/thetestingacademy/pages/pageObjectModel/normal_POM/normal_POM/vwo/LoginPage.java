@@ -1,12 +1,9 @@
-package com.thetestingacademy.pages.pageObjectModel.normal_POM;
+package com.thetestingacademy.pages.pageObjectModel.normal_POM.normal_POM.vwo;
 
-import com.thetestingacademy.driver.DriverManager;
 import com.thetestingacademy.utils.PropertiesReader;
 import com.thetestingacademy.utils.WaitHelpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import static com.thetestingacademy.driver.DriverManager.getDriver;
 
 // Page Class
 public class LoginPage {
