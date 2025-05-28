@@ -1,5 +1,6 @@
 package com.thetestingacademy.pages.pageObjectModel.normal_POM;
 
+import com.thetestingacademy.driver.DriverManager;
 import com.thetestingacademy.utils.PropertiesReader;
 import com.thetestingacademy.utils.WaitHelpers;
 import org.openqa.selenium.By;
@@ -26,23 +27,33 @@ public class LoginPage {
     //private By signBySSO = By.xpath("//button[normalize-space()='Sign in using SSO']");
 
 
-
-
-
-
     // Step 2 - Page Actions
     public String loginToVWOLoginInvalidCreds(String user, String pwd) {
-        getDriver().get(PropertiesReader.readKey("url"));
-        getDriver().findElement(username).sendKeys(user);
-        getDriver().findElement(password).sendKeys(pwd);
-        getDriver().findElement(signButton).click();
+
+        driver.get(PropertiesReader.readKey("url"));
+        driver.findElement(username).sendKeys(user);
+        driver.findElement(password).sendKeys(pwd);
+        driver.findElement(signButton).click();
 
         // Wait - Thread sleep
 //        WaitHelpers.waitJVM(5000);
 
-        WaitHelpers.checkVisibility(getDriver(),error_message,3);
+        WaitHelpers.checkVisibility(driver, error_message, 3);
 
-        String error_message_text = getDriver().findElement(error_message).getText();
+        String error_message_text = driver.findElement(error_message).getText();
         return error_message_text;
+    }
+
+    // Step 2 - Page Actions
+    public void loginToVWOLoginValidCreds(String user, String pwd) {
+
+        driver.get(PropertiesReader.readKey("url"));
+        driver.findElement(username).sendKeys(user);
+        driver.findElement(password).sendKeys(pwd);
+        driver.findElement(signButton).click();
+
+        // Wait - Thread sleep
+        WaitHelpers.waitJVM(5000);
+
     }
 }
